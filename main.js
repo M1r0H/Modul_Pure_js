@@ -105,16 +105,28 @@ const favorite = () => {
         //MODAL
         const modalFn = () => {
             modalImg.innerHTML = '';
+            modalFilmName.innerHTML = '';
+            modalFilmGenre.innerHTML = '';
+            modalFilmRating.innerHTML = '';
+            modalFilmDescr.innerHTML = '';
             modal.style.display = 'block';
             const imgModal = img.cloneNode(img);
             modalImg.appendChild(imgModal);
-            console.log(element)
+            modalFilmName.append(element.name);
+            modalFilmGenre.append(element.genres);
+            modalFilmRating.append(element.rating);
+            modalFilmDescr.innerHTML = element.description;
         };
         const modalClose = () => {
             modal.style.display = 'none';
         };
-        close.addEventListener('click', modalClose);
+        window.onclick = function (e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
         img.addEventListener('click', modalFn);
+        close.addEventListener('click', modalClose);
     });
 
 

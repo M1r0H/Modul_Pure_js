@@ -77,21 +77,45 @@ body {
 }
 
 #modalContent {
+    position: relative;
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888888;
     width: 500px;
+    display: flex;
+    align-items: center;
+    transition: all .3s;
+}
+
+.img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#filmRating {
+    font-size: 30px;
 }
 
 #close{
-    color: #aaa;
-    float: right;
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 95%;
     cursor: pointer;
+    color: #1a1e21;
 }
 
 #modalImg #card {
     border-radius: 20px;
+    max-width: 300px;
+}
+
+#modalDescr {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
