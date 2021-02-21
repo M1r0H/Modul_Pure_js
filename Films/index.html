@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Films</title>
+</head>
+<body>
+    <header id='header'>
+        <ul id='nav_bar'>
+            <li class='nav_link'><a href="#">HOME</a></li>
+            <li class='nav_link'><a href="index.html">FILMS</a></li>
+            <li class='nav_link'><a href="../Favourite/index.html">FAVOURITES</a></li>
+            <li class='nav_link'><a href="#">CONTACT ME</a></li>
+        </ul>
+    </header>
+    <main>
+        <!-- SEARCH -->
+       <div id="search">
+           <input id="input" type="text" placeholder="Search">
+           <button id="btn">GO</button>
+       </div>
+        <!-- FILTER -->
+        <div id="filter">
+            <select name="select" id="genre" class="dropdown">
+                <option selected="Genre" disabled>Genre</option>
+                <option>All</option>
+                <option>Horror</option>
+                <option>Comedy</option>
+                <option>Drama</option>
+                <option>Crime</option>
+            </select>
+            <select name="select" id="lang" class="dropdown">
+                <option selected="Genre" disabled>Lang</option>
+                <option>English</option>
+                <option>Russian</option>
+                <option>Japanese</option>
+                <option>German</option>
+                <option>Italian</option>
+            </select>
+        </div>
+       <!-- CARDS -->
+       <div id="cards">
+
+       </div>
+    </main>
+    <footer></footer>
+    <script src="../main.js"></script>
+</body>
+</html>
