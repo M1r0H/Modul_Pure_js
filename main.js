@@ -33,7 +33,6 @@ const fn = () => {
         .then((data) => {
             data.forEach((element) => {
                 const obj = element.show;
-                console.log(obj)
                 const divFilm = document.createElement('div');
                 const imgBack = document.createElement('div');
                 const img = document.createElement('img');
@@ -67,6 +66,12 @@ const fn = () => {
                     description.innerHTML = `${obj.name} ${obj.summary.slice(0, 150)}...`;
                 } else {
                     description.innerHTML = `${obj.name} ${obj.summary.slice(0, 150)}`;
+                };
+                imgBack.onclick = function (e) {
+                    if (e.target === imgBack) {
+                        img.style.transform = 'rotate3d(50, 50, 50, 360deg)';
+                        img.style.transitionDuration = '.8s';
+                    };
                 };
                 cards.appendChild(divFilm);
                 divFilm.appendChild(imgBack);
@@ -114,8 +119,17 @@ const favorite = () => {
             modalImg.appendChild(imgModal);
             modalFilmName.append(element.name);
             modalFilmGenre.append(element.genres);
-            modalFilmRating.append(element.rating);
-            modalFilmDescr.innerHTML = element.description;
+            modalFilmRating.append(`${element.rating}🤩`);
+            // modalFilmDescr.innerHTML = element.description;
+            if (element.description.length > 250) {
+                modalFilmDescr.innerHTML = `${element.description.slice(0, 250)}...`;
+            } else {
+                modalFilmDescr.innerHTML = `${element.description.slice(0, 250)}`;
+            };
+            const allDescription = () => {
+                modalFilmDescr.innerHTML = element.description;
+            };
+            modalFilmDescr.addEventListener('click', allDescription);
         };
         const modalClose = () => {
             modal.style.display = 'none';
@@ -128,8 +142,6 @@ const favorite = () => {
         img.addEventListener('click', modalFn);
         close.addEventListener('click', modalClose);
     });
-
-
 };
 if (document.location.pathname.includes('Favourite')) {
     favorite();

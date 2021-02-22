@@ -72,7 +72,7 @@ body {
     padding: 8px;
     outline: none;
     border: none;
-    background: rgba(164, 16, 187, 0.67);
+    background: rgba(164, 16, 187, .67);
     border-radius: 0 20px 20px 0;
     font-family: 'Merienda', cursive;
     cursor: pointer;
@@ -148,7 +148,6 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-image: url(../assets/img/1.png);
-    background-color: rgba(164, 16, 187, .2);
     border-radius: 20px;
     transition: all .5s;
     opacity: 0;
@@ -157,10 +156,6 @@ body {
 
 #back_for_card:hover::after{
     opacity: 1;
-}
-
-#back_for_card:hover #card{
-    opacity: .5;
 }
 
 #descr {
