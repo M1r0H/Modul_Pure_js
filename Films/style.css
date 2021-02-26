@@ -33,7 +33,7 @@ body {
 .nav_link > a {
     text-decoration: none;
     color: #000000;
-    font-family: 'Merienda', cursive;
+    font-family: 'Shippori Mincho', serif;;
 }
 
 .nav_link:hover {
@@ -62,7 +62,7 @@ body {
 
 ::-webkit-input-placeholder {
     color:#000;
-    font-family: 'Merienda', cursive;
+    font-family: 'Shippori Mincho', serif;;
 }
 
 #btn {
@@ -74,7 +74,7 @@ body {
     border: none;
     background: rgba(164, 16, 187, .67);
     border-radius: 0 20px 20px 0;
-    font-family: 'Merienda', cursive;
+    font-family: 'Shippori Mincho', serif;;
     cursor: pointer;
     transition: all .3s;
 }
@@ -94,7 +94,7 @@ body {
 
 .dropdown {
     background: rgba(164, 16, 187, 0.2);
-    font-family: 'Merienda', cursive;
+    font-family: 'Shippori Mincho', serif;;
     border: none;
     margin-left: 10px;
     width: 150px;
@@ -165,7 +165,7 @@ body {
     justify-content: space-evenly;
     text-align: center;
     align-items: center;
-    font-family: 'Merienda', cursive;
+    font-family: 'Shippori Mincho', serif;;
     font-size: 40px;
     font-weight: 900;
     margin-left: 20px;

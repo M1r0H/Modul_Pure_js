@@ -33,7 +33,7 @@ body {
 .nav_link > a {
     text-decoration: none;
     color: #000000;
-    font-family: 'Merienda', cursive;
+    font-family: 'Shippori Mincho', serif;;
 }
 
 .nav_link:hover {
@@ -88,7 +88,7 @@ body {
     text-align: center;
     transition: all .3s;
     border-radius: 20px 0 0 20px;
-    font-family: 'Merienda', sans-serif;
+    font-family: 'Shippori Mincho', serif;;
 }
 
 ::-webkit-scrollbar {
