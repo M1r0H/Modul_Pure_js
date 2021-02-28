@@ -6,13 +6,13 @@
 }
 
 body {
-    background: rgba(164, 16, 187, 0.1);
+    background: rgba(66, 64, 64, 0.1);
 }
 
 #header {
     display: flex;
     justify-content: flex-end;
-    box-shadow: 0px 0px 3px rgb(90, 83, 83);
+    box-shadow: 0 0 3px rgb(90, 83, 83);
     max-width: 100%;
 
 }
@@ -37,7 +37,7 @@ body {
 }
 
 .nav_link:hover {
-    background: rgba(164, 16, 187, .67);
+    background: rgba(92, 89, 89, 0.67);
 }
 
 /*CONTAINER*/
@@ -49,10 +49,39 @@ body {
     align-items: center;
 }
 
+#divFilms {
+    position: relative;
+}
+#like{
+    width: 200px;
+    height: 200px;
+    top: 165px;
+    left: 89px;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../assets/img/1.png);
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 0;
+    z-index: 2;
+    border: none;
+    transition: transform .5s, backdrop-filter 0s;;
+    cursor: pointer;
+    transform: scale(.4);
+    backdrop-filter: blur(3px);
+    outline: none;
+}
+
+#like:hover {
+    transform: scale(.5);
+    backdrop-filter: none;
+}
+
 #divFilms #card{
     width: 200px;
     margin: 30px;
-    box-shadow: 0px 0px 20px rgba(164, 16, 187, .5);
+    box-shadow: 0px 0px 20px rgba(19, 17, 17, 0.5);
     border-radius: 20px;
     transition: all .3s;
     cursor: pointer;
@@ -98,7 +127,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
     max-height: 20px;
-    background-color: #843465;
+    background-color: #1c1818;
 }
 
 .img {
@@ -141,3 +170,4 @@ body {
 #modalDescr #description{
     cursor: pointer;
 }
+

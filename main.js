@@ -13,78 +13,88 @@ const modalFilmGenre = document.getElementById('filmGenre');
 const modalFilmRating = document.getElementById('filmRating');
 const modalFilmDescr = document.getElementById('description');
 const notFoundImg = 'https://cdn2.iconfinder.com/data/icons/mobile-smart-phone/64/broken_phone_fix_problem_error_danger-512.png';
+const like = document.createElement('button');
+like.setAttribute('id', 'like');
 
 // FILMS
 
-const fn = () => {
+const films = () => {
     cards.innerHTML = '';
-    const promise = fetch(`http://api.tvmaze.com/search/shows?q=${input.value ? input.value : 'cars'}`);
+    const promise = fetch(`http://api.tvmaze.com/shows?page=1`);
     promise
         .then((response) => {
             return response.json();
         })
         .then((data) => {
-            if(genre.value !== 'Genre' && genre.value !== 'All' || lang.value !== 'Lang') {
-                return data.filter(item => item.show.genres.includes(genre.value)).filter(item =>
-                    item.show.language.includes(lang.value));
-            };
-            return data;
+            // if(input.value) {
+            //     return data.filter(item => item.name.includes(input.value));
+            // }
+            // if (genre.value !== 'Genre' && genre.value !== 'All') {
+            //     return data.filter(item => item.genres.includes(genre.value));
+            // };
+            // if (lang.value !== 'Lang') {
+            //     return data.filter(item => item.language.includes(lang.value));
+            // };
+            // return data
         })
         .then((data) => {
-            data.forEach((element) => {
-                const obj = element.show;
+            const sliceData = data.slice(0, 10);
+            sliceData.forEach((element) => {
                 const divFilm = document.createElement('div');
                 const imgBack = document.createElement('div');
                 const img = document.createElement('img');
+                const like = document.createElement('button');
                 const description = document.createElement('div');
+                like.setAttribute('id', 'like');
                 const saveFavorite = () => {
                     const savedObj = {
-                        name: obj.name,
-                        img: obj.image && obj.image.medium ? obj.image.medium : notFoundImg,
-                        description: obj.summary,
-                        genres: obj.genres,
-                        rating: obj.rating.average ? obj.rating.average : 0,
+                        name: element.name,
+                        img: element.image && element.image.medium ? element.image.medium : notFoundImg,
+                        description: element.summary,
+                        genres: element.genres,
+                        rating: element.rating.average ? element.rating.average : 0,
                     }
-                    if (obj.image) {
-                        localStorage.setItem(obj.name, JSON.stringify(savedObj));
+                    if (element.image) {
+                        localStorage.setItem(element.name, JSON.stringify(savedObj));
                     } else {
                         savedObj.img = notFoundImg;
-                        localStorage.setItem(obj.name, JSON.stringify(savedObj));
+                        localStorage.setItem(element.name, JSON.stringify(savedObj));
                     }
                 };
                 divFilm.setAttribute('id', 'divFilms')
                 imgBack.setAttribute('id', 'back_for_card')
                 img.setAttribute('id', 'card');
-                if (obj.image) {
-                    img.setAttribute('src', obj.image.medium);
+                if (element.image) {
+                    img.setAttribute('src', element.image.medium);
                 } else {
                     img.setAttribute('src', 'https://cdn2.iconfinder.com/data/icons/' +
                         'mobile-smart-phone/64/broken_phone_fix_problem_error_danger-512.png');
                 };
                 description.setAttribute('id', 'descr');
-                if (obj.summary.length > 150) {
-                    description.innerHTML = `${obj.name} ${obj.summary.slice(0, 150)}...`;
+                if (element.summary.length > 150) {
+                    description.innerHTML = `${element.name} ${element.summary.slice(0, 150)}...`;
                 } else {
-                    description.innerHTML = `${obj.name} ${obj.summary.slice(0, 150)}`;
+                    description.innerHTML = `${element.name} ${element.summary.slice(0, 150)}`;
                 };
-                imgBack.onclick = function (e) {
-                    if (e.target === imgBack) {
-                        img.style.transform = 'rotate3d(50, 50, 50, 360deg)';
-                        img.style.transitionDuration = '.8s';
+                like.onclick = function (e) {
+                    if (e.target === like) {
+                        img.style.transform = 'scale(.95)';
+                        setTimeout(function () {img.style.transform = 'scale(1)'}, 250)
                     };
                 };
                 cards.appendChild(divFilm);
                 divFilm.appendChild(imgBack);
                 imgBack.appendChild(img);
+                divFilm.appendChild(like);
                 divFilm.appendChild(description);
-                imgBack.addEventListener('click', saveFavorite);
+                like.addEventListener('click', saveFavorite);
             });
         })
 };
 
 if (document.location.pathname.includes('Films')) {
-    fn();
-    button.addEventListener('click', fn);
+    films();
+    button.addEventListener('click', films);
 }
 
 //FAVOURITE
@@ -99,12 +109,16 @@ const favorite = () => {
     }
 
     data.forEach((element) => {
+        console.log(element)
+        const like = document.createElement('button');
         const divFilm = document.createElement('div');
         const img = document.createElement('img');
         divFilm.setAttribute('id', 'divFilms');
+        like.setAttribute('id', 'like');
         img.setAttribute('id', 'card');
         img.setAttribute('src', element.img);
         container.appendChild(divFilm);
+        divFilm.appendChild(like);
         divFilm.appendChild(img);
 
         //MODAL
@@ -139,8 +153,13 @@ const favorite = () => {
                 modal.style.display = 'none';
             }
         }
+        const deleteFavorite = () => {
+            localStorage.removeItem(`${element.name}`);
+            location.reload();
+        }
         img.addEventListener('click', modalFn);
         close.addEventListener('click', modalClose);
+        like.addEventListener('click', deleteFavorite)
     });
 };
 if (document.location.pathname.includes('Favourite')) {

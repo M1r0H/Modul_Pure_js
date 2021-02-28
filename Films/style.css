@@ -6,7 +6,7 @@
 }
 
 body {
-    background: rgba(164, 16, 187, 0.1);
+    background: rgba(66, 64, 64, 0.1);
 }
 
 #header {
@@ -37,7 +37,7 @@ body {
 }
 
 .nav_link:hover {
-    background: rgba(164, 16, 187, 0.67);
+    background: rgba(92, 89, 89, 0.67);
 }
 
 /*  SEARCH  */
@@ -55,7 +55,7 @@ body {
     margin: 0;
     outline: none;
     border: none;
-    background: rgba(164, 16, 187, 0.2);
+    background: rgba(24, 24, 24, 0.2);
     padding-left: 30px;
     border-radius: 20px 0 0 20px;
 }
@@ -72,7 +72,7 @@ body {
     padding: 8px;
     outline: none;
     border: none;
-    background: rgba(164, 16, 187, .67);
+    background: rgba(24, 23, 23, 0.6);
     border-radius: 0 20px 20px 0;
     font-family: 'Shippori Mincho', serif;;
     cursor: pointer;
@@ -93,7 +93,7 @@ body {
 }
 
 .dropdown {
-    background: rgba(164, 16, 187, 0.2);
+    background: rgba(24, 23, 23, 0.6);
     font-family: 'Shippori Mincho', serif;;
     border: none;
     margin-left: 10px;
@@ -110,16 +110,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     flex-wrap: wrap;
 }
 
 #divFilms {
+    position: relative;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0px 0px 20px rgba(164, 16, 187, .5);
+    box-shadow: 0px 0px 20px rgba(19, 17, 17, 0.5);
     display: flex;
     margin: 40px;
+    width: 38%;
+    min-height: 300px;
 }
 
 #back_for_card{
@@ -133,25 +135,34 @@ body {
 
 #card {
     display: block;
-    width: 300px;
+    width: 215px;
     border-radius: 20px;
     transition: all .3s;
 }
 
-#back_for_card::after{
-    content: '';
+#like{
+    width: 200px;
+    height: 200px;
+    top: 192px;
+    left: 105px;
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
     background-image: url(../assets/img/1.png);
-    border-radius: 20px;
-    transition: all .5s;
-    opacity: 0;
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 0;
+    border: none;
+    transition: transform .5s, backdrop-filter 0s;;
     cursor: pointer;
+    transform: scale(.4);
+    backdrop-filter: blur(3px);
+    outline: none;
+}
+
+#like:hover {
+    transform: scale(.5);
+    backdrop-filter: none;
 }
 
 #back_for_card:hover::after{
