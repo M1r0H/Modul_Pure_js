@@ -26,15 +26,14 @@
         <!-- FILTER -->
         <div id="filter">
             <select name="select" id="genre" class="dropdown">
-                <option selected="Genre" disabled>Genre</option>
-                <option>All</option>
+                <option selected="Genre">All</option>
                 <option>Horror</option>
                 <option>Comedy</option>
                 <option>Drama</option>
                 <option>Crime</option>
             </select>
             <select name="select" id="lang" class="dropdown">
-                <option selected="Genre" disabled>Lang</option>
+                <option selected="Genre">All</option>
                 <option>English</option>
                 <option>Russian</option>
                 <option>Japanese</option>
@@ -42,10 +41,29 @@
                 <option>Italian</option>
             </select>
         </div>
-       <!-- CARDS -->
-       <div id="cards">
 
-       </div>
+        <!-- PAGINATION -->
+        <div id="pagination">
+            <button class="pagination_arrow" id="arrow_left"></button>
+            <button class="page_number" id="page_1">1</button>
+            <button class="page_number" id="page_2">2</button>
+            <button class="page_number" id="page_3">3</button>
+            <div id="dropdown_page">
+                <div class="trigger_dropdown">
+                    <div class="dot"></div>
+                </div>
+                <ul class="dropdown_menu">
+                    <li class="page_number">4</li>
+                    <li class="page_number">5</li>
+                </ul>
+            </div>
+            <button class="pagination_arrow" id="arrow_right"></button>
+        </div>
+
+        <!-- CARDS -->
+        <div id="cards">
+
+        </div>
     </main>
     <footer></footer>
     <script src="../main.js"></script>
