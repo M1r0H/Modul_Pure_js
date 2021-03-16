@@ -97,7 +97,7 @@ body {
 
 .dropdown {
     background: rgba(24, 23, 23, 0.6);
-    font-family: 'Shippori Mincho', serif;;
+    font-family: 'Shippori Mincho', serif;
     border: none;
     margin-left: 10px;
     width: 150px;
@@ -113,7 +113,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .pagination_arrow {
@@ -232,13 +232,12 @@ body {
 }
 
 .dropdown_menu{
-
-    opacity: 0;
-    transition: opacity .3s ease;
+    display: none;
+    transition: display .3s ease;
 }
 
 .drop {
-    opacity: 1;
+    display: block;
 }
 
 .dropdown_menu>li{
@@ -263,6 +262,13 @@ body {
 .page_number:active,
 .dropdown_item:active{
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5) inset;
+}
+
+#currentPage{
+    margin-bottom: 50px;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Shippori Mincho', serif;
 }
 
 /*  CARDS   */
