@@ -106,7 +106,7 @@ body {
 
 #filter {
     max-width: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
@@ -269,7 +269,6 @@ body {
     list-style: none;
     width: 35px;
     height: 30px;
-
 }
 
 .pagination_arrow:hover,
@@ -376,6 +375,31 @@ body {
 #descr p {
     font-weight: 400;
     font-size: 20px;
+}
+
+#scroll_top{
+    background-image: url("../assets/img/iconfinder_icon-ios7-arrow-forward_211688.png");
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-position: center;
+    margin: 20px;
+    transform: rotate(270deg);
+    border: solid 2px #000000;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.5);
+}
+
+#scroll_top:hover{
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+#scroll_top:active{
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5) inset;
 }
 
 @media (max-width: 1024px) {

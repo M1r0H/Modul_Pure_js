@@ -17,7 +17,10 @@ const dropdownMenu = document.getElementsByClassName('dropdown_menu')[0];
 const pagination = document.getElementById('pagination');
 const currentPage = document.getElementById('currentPage');
 const quantity = document.getElementById('quantity');
-const notFound = document.getElementById('not_found')
+const notFound = document.getElementById('not_found');
+const filter = document.getElementById('filter');
+const search = document.getElementById('search');
+const scroll = document.getElementById('scroll_top')
 // FILMS
 let page = 1;
 const trigger = () => {
@@ -49,13 +52,31 @@ const createElement = (element, type, typeName) => {
     name.setAttribute(type, typeName);
     return name;
 };
+const hideFilter = (event) => {
+    const filterDrop = event.target.closest('#input');
+    if (filterDrop) {
+        filter.style.display = 'flex';
+    } else {
+        filter.style.display = 'none';
+    }
+    document.body.onclick = function (e) {
+        if (e.target.id !== 'input')
+            filter.style.display = 'none';
+    }
+}
+window.onscroll = function() {
+    if (window.pageYOffset > '700') {
+        scroll.style.display = 'block'
+    } else {
+        scroll.style.display = 'none'
+    };
+};
 const films = () => {
     const promise = () => {
         if (!input.value) {
             return fetch(`http://api.tvmaze.com/shows?page=${page}`);
         }
         return fetch(`http://api.tvmaze.com/search/shows?q=${input.value}`);
-
     }
     const filter = (data) => {
         if (genre.value !== 'All') {
@@ -74,7 +95,6 @@ const films = () => {
             return response.json()
         })
         .then((data) => {
-            console.log()
             if (data.length === 0) {
                 notFound.style.display = 'block';
             }
@@ -86,8 +106,8 @@ const films = () => {
         .then((data) => {
             if (quantity.value === '5'){
                 return data.slice(0, 5);
-            }
-            return data.slice(0, 10)
+            };
+            return data.slice(0, 10);
         })
         .then((data) => {
             if (input.value) {
@@ -162,10 +182,13 @@ const films = () => {
 }
 if (document.location.pathname.includes('Films')) {
     films();
+    search.addEventListener('click', hideFilter)
     quantity.addEventListener('change', films)
     pagination.addEventListener('click', usePagination);
     button.addEventListener('click', films);
 }
+
+// hide stick menu
 
 //FAVOURITE
 
