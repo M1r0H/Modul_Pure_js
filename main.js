@@ -16,6 +16,8 @@ const buttonTrigger = document.getElementsByClassName('dot')[0];
 const dropdownMenu = document.getElementsByClassName('dropdown_menu')[0];
 const pagination = document.getElementById('pagination');
 const currentPage = document.getElementById('currentPage');
+const quantity = document.getElementById('quantity');
+const notFound = document.getElementById('not_found')
 // FILMS
 let page = 1;
 const trigger = () => {
@@ -53,6 +55,7 @@ const films = () => {
             return fetch(`http://api.tvmaze.com/shows?page=${page}`);
         }
         return fetch(`http://api.tvmaze.com/search/shows?q=${input.value}`);
+
     }
     const filter = (data) => {
         if (genre.value !== 'All') {
@@ -66,20 +69,25 @@ const films = () => {
         };
         return data;
     };
-
     promise()
         .then((response) => {
             return response.json()
         })
         .then((data) => {
+            console.log()
+            if (data.length === 0) {
+                notFound.style.display = 'block';
+            }
             if (input.value) {
                 return filter(data);
             };
             return data
         })
         .then((data) => {
-            const sliceData = data.slice(0, 10);
-            return sliceData
+            if (quantity.value === '5'){
+                return data.slice(0, 5);
+            }
+            return data.slice(0, 10)
         })
         .then((data) => {
             if (input.value) {
@@ -117,6 +125,9 @@ const films = () => {
                     }
                     divFilm.style.backgroundColor = 'rgba(24, 24, 24, 0.2)'
                 };
+                if (localStorage.getItem(element.name)) {
+                    divFilm.style.backgroundColor = 'rgba(24, 24, 24, 0.2)'
+                };
                 if (element.image) {
                     img.setAttribute('src', element.image.medium);
                 } else {
@@ -127,7 +138,7 @@ const films = () => {
                 if (element.summary.length > 150) {
                     description.innerHTML = `${element.name} ${element.summary.slice(0, 150)}...`;
                 } else {
-                    description.innerHTML = `${element.name} ${element.summary.slice(0, 150)}`;
+                    description.innerHTML = `${element.name} ${element.summary}`;
                 }
                 ;
                 likeImg.onclick = function (e) {
@@ -151,6 +162,7 @@ const films = () => {
 }
 if (document.location.pathname.includes('Films')) {
     films();
+    quantity.addEventListener('change', films)
     pagination.addEventListener('click', usePagination);
     button.addEventListener('click', films);
 }

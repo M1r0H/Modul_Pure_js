@@ -10,12 +10,25 @@
 </head>
 <body>
     <header id='header'>
-        <ul id='nav_bar'>
-            <li class='nav_link'><a href="#">HOME</a></li>
-            <li class='nav_link'><a href="index.html">FILMS</a></li>
-            <li class='nav_link'><a href="../Favourite/index.html">FAVOURITES</a></li>
-            <li class='nav_link'><a href="#">CONTACT ME</a></li>
-        </ul>
+        <nav class="nav_box">
+            <div class="hamburger_menu">
+                <input id="menu__toggle" type="checkbox" />
+                <label class="menu__btn" for="menu__toggle">
+                    <span></span>
+                </label>
+                <ul id='nav_bar' class="nav_list menu__box">
+                    <li class="nav_link">
+                        <a href="index.html" class="nav_content menu__item">HOME</a>
+                    </li>
+                    <li class="nav_link">
+                        <a href="index.html" class="nav_content menu__item">FILMS</a>
+                    </li>
+                    <li class="nav_link">
+                        <a href="../Favourite/index.html" class="nav_content menu__item">FAVOURITES</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
     <main>
         <!-- SEARCH -->
@@ -58,9 +71,15 @@
                 </ul>
             </div>
             <button class="pagination_arrow" id="arrow_right"></button>
+            <select name="select" id="quantity" class="dropdown quantity">
+                <option>5</option>
+                <option selected="quantity">10</option>
+            </select>
         </div>
         <div id="currentPage"><p>Страница 1</p></div>
-
+        <div id="not_found">
+            <img src="../assets/img/Union.png" alt="">
+        </div>
         <!-- CARDS -->
         <div id="cards">
 
