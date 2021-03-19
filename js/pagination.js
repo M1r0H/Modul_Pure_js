@@ -1,4 +1,4 @@
-import {films} from './film.js';
+import { films } from './film.js';
 export let page = 1;
 const currentPage = document.getElementById('currentPage');
 const buttonTrigger = document.getElementsByClassName('dot')[0];
@@ -10,7 +10,7 @@ export const usePagination = (event) => {
         page = ++page;
         currentPage.innerText = `Страница ${page}`;
     };
-    if(event.target.id === 'arrow_left' && page > 1){
+    if (event.target.id === 'arrow_left' && page > 1) {
         page = --page;
         currentPage.innerText = `Страница ${page}`;
     };

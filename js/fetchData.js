@@ -1,5 +1,5 @@
-import {input} from "./constants.js";
-import {page} from "./pagination.js";
+import { input } from "./constants.js";
+import { page } from "./pagination.js";
 
 export const promise = () => {
     if (!input.value) {

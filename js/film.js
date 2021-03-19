@@ -1,8 +1,8 @@
-import {promise} from "./fetchData.js";
-import {input} from "./constants.js";
-import {quantity} from "./constants.js";
-import {filter} from "./filter.js";
-import {createElement} from "./createElement.js";
+import { promise } from "./fetchData.js";
+import { input } from "./constants.js";
+import { quantity } from "./constants.js";
+import { filter } from "./filter.js";
+import { createElement } from "./createElement.js";
 
 const notFound = document.getElementById('not_found');
 const cards = document.getElementById('cards');
@@ -24,7 +24,7 @@ export const films = () => {
             return data;
         })
         .then((data) => {
-            if (quantity.value === '5'){
+            if (quantity.value === '5') {
                 return data.slice(0, 5);
             };
             return data.slice(0, 10);

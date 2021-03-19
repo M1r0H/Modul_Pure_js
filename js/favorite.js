@@ -1,4 +1,4 @@
-import {createElement} from "./createElement.js";
+import { createElement } from "./createElement.js";
 const container = document.getElementById('container');
 const modal = document.getElementById('myModal');
 const close = document.getElementById('close');
@@ -9,7 +9,7 @@ const modalFilmRating = document.getElementById('filmRating');
 const modalFilmDescr = document.getElementById('description');
 export const favorite = () => {
     let data = [];
-    for (let i=0; i < localStorage.length; i++) {
+    for (let i = 0; i < localStorage.length; i++) {
         const localKey = localStorage.key(i);
         const localValue = localStorage.getItem(localKey);
         const realData = JSON.parse(localValue);
