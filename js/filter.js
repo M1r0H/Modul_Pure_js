@@ -7,12 +7,13 @@ export const hideFilter = (event) => {
         filterHide.style.display = 'flex';
     } else {
         filterHide.style.display = 'none';
-    }
+    };
     document.body.onclick = function (e) {
-        if (e.target.id !== 'input' && e.target.id !== 'genre' && e.target.id !== 'lang')
+        if (e.target.id !== 'input' && e.target.id !== 'genre' && e.target.id !== 'lang') {
             filterHide.style.display = 'none';
-    }
-}
+        };
+    };
+};
 export const filter = (data) => {
     if (genre.value !== 'All') {
         const filterGenre = data.filter(item => item.show.genres.includes(genre.value));

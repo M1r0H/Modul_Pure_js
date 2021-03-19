@@ -9,11 +9,11 @@ export const usePagination = (event) => {
     if (event.target.id === 'arrow_right' && page < 5) {
         page = ++page;
         currentPage.innerText = `Страница ${page}`;
-    }
+    };
     if(event.target.id === 'arrow_left' && page > 1){
         page = --page;
         currentPage.innerText = `Страница ${page}`;
-    }
+    };
     if (pageCount) {
         page = event.target.innerText;
         currentPage.innerText = `Страница ${page}`;

@@ -14,13 +14,13 @@ export const favorite = () => {
         const localValue = localStorage.getItem(localKey);
         const realData = JSON.parse(localValue);
         data.push(realData);
-    }
+    };
     data.forEach((element) => {
         const divFilm = createElement('div', 'id', 'divFilms');
         const img = createElement('img', 'id', 'card');
         const like = createElement('a', 'id', 'like');
-        const likeImg = createElement('img', 'id', 'imgLike')
-        likeImg.setAttribute('src', '../assets/img/1.png')
+        const likeImg = createElement('img', 'id', 'imgLike');
+        likeImg.setAttribute('src', '../assets/img/1.png');
         img.setAttribute('src', element.img);
         container.appendChild(divFilm);
         divFilm.appendChild(like);
@@ -55,14 +55,14 @@ export const favorite = () => {
         window.onclick = function (e) {
             if (e.target === modal) {
                 modal.style.display = 'none';
-            }
-        }
+            };
+        };
         const deleteFavorite = () => {
             localStorage.removeItem(`${element.name}`);
             location.reload();
-        }
+        };
         img.addEventListener('click', modalFn);
         close.addEventListener('click', modalClose);
-        likeImg.addEventListener('click', deleteFavorite)
+        likeImg.addEventListener('click', deleteFavorite);
     });
 };

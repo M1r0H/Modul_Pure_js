@@ -11,13 +11,13 @@ if (document.location.pathname.includes('Films')) {
     films();
     window.onscroll = function() {
         if (window.pageYOffset > '700') {
-            scroll.style.display = 'block'
+            scroll.style.display = 'block';
         } else {
-            scroll.style.display = 'none'
+            scroll.style.display = 'none';
         };
     };
-    search.addEventListener('click', hideFilter)
-    quantity.addEventListener('change', films)
+    search.addEventListener('click', hideFilter);
+    quantity.addEventListener('change', films);
     pagination.addEventListener('click', usePagination);
     button.addEventListener('click', films);
 }
