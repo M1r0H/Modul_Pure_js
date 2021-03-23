@@ -21,7 +21,6 @@ export const films = () => {
             return data;
         })
         .then((data) => {
-            console.log(data);
             if (quantity.value === '5') {
                 return data.slice(0, 5);
             };
