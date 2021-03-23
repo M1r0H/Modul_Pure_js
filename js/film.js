@@ -3,10 +3,13 @@ import { input } from "./constants.js";
 import { quantity } from "./constants.js";
 import { filter } from "./filter.js";
 import { createElement } from "./createElement.js";
+
 const notFound = document.getElementById('not_found');
 const cards = document.getElementById('cards');
 const notFoundImg = 'https://cdn2.iconfinder.com/data/icons/mobile-smart-phone/64/broken_phone_fix_problem_error_danger-512.png';
+
 export const films = () => {
+
     promise()
         .then((response) => {
             return response.json();
@@ -14,6 +17,8 @@ export const films = () => {
         .then((data) => {
             if (data.length === 0) {
                 notFound.style.display = 'block';
+            } else {
+                notFound.style.display = 'none'
             };
             if (input.value) {
                 return filter(data);
@@ -29,9 +34,11 @@ export const films = () => {
         .then((data) => {
             if (input.value) {
                 let newData = [];
+
                 for (const element of data) {
                     newData.push(element.show);
                 };
+
                 return newData;
             };
             return data;
@@ -46,7 +53,9 @@ export const films = () => {
                 const description = createElement('div', 'id', 'descr');
                 const likeImg = createElement('img', 'class', 'imgLike');
                 likeImg.setAttribute('src', '../assets/img/1.png');
+
                 const saveFavorite = (e) => {
+
                     if (!localStorage.getItem(element.name)) {
                         img.style.transform = 'scale(.95)';
                         setTimeout(function() {
@@ -77,21 +86,25 @@ export const films = () => {
                         divFilm.style.backgroundColor = '';
                     };
                 };
+
                 if (localStorage.getItem(element.name)) {
                     divFilm.style.backgroundColor = 'rgba(24, 24, 24, 0.2)';
                     likeImg.style.transform = 'rotateX(180deg)';
                 };
+
                 if (element.image) {
                     img.setAttribute('src', element.image.medium);
                 } else {
                     img.setAttribute('src', 'https://cdn2.iconfinder.com/data/icons/' +
                         'mobile-smart-phone/64/broken_phone_fix_problem_error_danger-512.png');
                 };
+
                 if (element.summary.length > 150) {
                     description.innerHTML = `${element.name} ${element.summary.slice(0, 150)}...`;
                 } else {
                     description.innerHTML = `${element.name} ${element.summary}`;
                 };
+
                 cards.appendChild(divFilm);
                 divFilm.appendChild(imgBack);
                 imgBack.appendChild(img);
