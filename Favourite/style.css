@@ -77,10 +77,12 @@ body {
     display: block;
     width: 50px;
     z-index: 1;
+    transform: rotate(180deg);
+    transition: all .5s;
 }
 
 #imgLike:hover {
-    transform: scale(1.2);
+    transform: scale(1.2) rotate(180deg);
 }
 
 #divFilms #card {

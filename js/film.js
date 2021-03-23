@@ -3,12 +3,9 @@ import { input } from "./constants.js";
 import { quantity } from "./constants.js";
 import { filter } from "./filter.js";
 import { createElement } from "./createElement.js";
-
 const notFound = document.getElementById('not_found');
 const cards = document.getElementById('cards');
 const notFoundImg = 'https://cdn2.iconfinder.com/data/icons/mobile-smart-phone/64/broken_phone_fix_problem_error_danger-512.png';
-
-
 export const films = () => {
     promise()
         .then((response) => {
@@ -45,28 +42,44 @@ export const films = () => {
                 const divFilm = createElement('div', 'id', 'divFilms');
                 const imgBack = createElement('div', 'id', 'back_for_card');
                 const img = createElement('img', 'id', 'card');
-                const like = createElement('a', 'id', 'like');
+                const like = createElement('a', 'class', 'like');
                 const description = createElement('div', 'id', 'descr');
-                const likeImg = createElement('img', 'id', 'imgLike');
+                const likeImg = createElement('img', 'class', 'imgLike');
                 likeImg.setAttribute('src', '../assets/img/1.png');
-                const saveFavorite = () => {
-                    const savedObj = {
-                        name: element.name,
-                        img: element.image && element.image.medium ? element.image.medium : notFoundImg,
-                        description: element.summary,
-                        genres: element.genres,
-                        rating: element.rating.average ? element.rating.average : 0,
-                    };
-                    if (element.image) {
-                        localStorage.setItem(element.name, JSON.stringify(savedObj));
+                const saveFavorite = (e) => {
+                    if (!localStorage.getItem(element.name)) {
+                        img.style.transform = 'scale(.95)';
+                        setTimeout(function() {
+                            img.style.transform = 'scale(1)';
+                        }, 250);
+                        const savedObj = {
+                            name: element.name,
+                            img: element.image && element.image.medium ? element.image.medium : notFoundImg,
+                            description: element.summary,
+                            genres: element.genres,
+                            rating: element.rating.average ? element.rating.average : 0,
+                        };
+                        if (element.image) {
+                            localStorage.setItem(element.name, JSON.stringify(savedObj));
+                        } else {
+                            savedObj.img = notFoundImg;
+                            localStorage.setItem(element.name, JSON.stringify(savedObj));
+                        };
+                        divFilm.style.backgroundColor = 'rgba(24, 24, 24, 0.2)';
+                        likeImg.style.transform = 'rotateX(180deg)';
                     } else {
-                        savedObj.img = notFoundImg;
-                        localStorage.setItem(element.name, JSON.stringify(savedObj));
+                        img.style.transform = 'scale(.95)';
+                        setTimeout(function() {
+                            img.style.transform = 'scale(1)';
+                        }, 250);
+                        likeImg.style.transform = 'rotate(0)';
+                        localStorage.removeItem(element.name);
+                        divFilm.style.backgroundColor = '';
                     };
-                    divFilm.style.backgroundColor = 'rgba(24, 24, 24, 0.2)';
                 };
                 if (localStorage.getItem(element.name)) {
                     divFilm.style.backgroundColor = 'rgba(24, 24, 24, 0.2)';
+                    likeImg.style.transform = 'rotateX(180deg)';
                 };
                 if (element.image) {
                     img.setAttribute('src', element.image.medium);
@@ -79,21 +92,13 @@ export const films = () => {
                 } else {
                     description.innerHTML = `${element.name} ${element.summary}`;
                 };
-                likeImg.onclick = function (e) {
-                    if (e.target === likeImg) {
-                        img.style.transform = 'scale(.95)';
-                        setTimeout(function () {
-                            img.style.transform = 'scale(1)';
-                        }, 250);
-                    };
-                };
                 cards.appendChild(divFilm);
                 divFilm.appendChild(imgBack);
                 imgBack.appendChild(img);
                 imgBack.appendChild(like);
-                like.appendChild(likeImg)
+                like.appendChild(likeImg);
                 divFilm.appendChild(description);
                 likeImg.addEventListener('click', saveFavorite);
             });
         });
-}
+};

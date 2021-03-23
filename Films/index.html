@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
+
 <head>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -8,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Films</title>
 </head>
+
 <body>
     <header id='header'>
         <nav class="nav_box">
@@ -32,10 +34,10 @@
     </header>
     <main>
         <!-- SEARCH -->
-       <div id="search">
-           <input id="input" type="text" autocomplete="off" placeholder="Search">
-           <button id="btn">GO</button>
-       </div>
+        <div id="search">
+            <input id="input" type="text" autocomplete="off" placeholder="Search">
+            <button id="btn">GO</button>
+        </div>
         <!-- FILTER -->
         <div id="filter">
             <select name="select" id="genre" class="dropdown">
@@ -75,7 +77,9 @@
                 <option selected="quantity">10</option>
             </select>
         </div>
-        <div id="currentPage"><p>Страница 1</p></div>
+        <div id="currentPage">
+            <p>Страница 1</p>
+        </div>
         <div id="not_found">
             <img src="../assets/img/Union.png" alt="">
         </div>
@@ -86,4 +90,5 @@
     <footer></footer>
     <script src='../dist/bundle.js'></script>
 </body>
+
 </html>

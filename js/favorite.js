@@ -52,7 +52,7 @@ export const favorite = () => {
         const modalClose = () => {
             modal.style.display = 'none';
         };
-        window.onclick = function (e) {
+        const closeModal = (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
             };
@@ -61,6 +61,7 @@ export const favorite = () => {
             localStorage.removeItem(`${element.name}`);
             location.reload();
         };
+        window.addEventListener('click', closeModal);
         img.addEventListener('click', modalFn);
         close.addEventListener('click', modalClose);
         likeImg.addEventListener('click', deleteFavorite);

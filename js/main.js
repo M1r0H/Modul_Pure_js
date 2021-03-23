@@ -9,22 +9,19 @@ const search = document.getElementById('search');
 const scroll = document.getElementById('scroll_top');
 if (document.location.pathname.includes('Films')) {
     films();
-    window.onscroll = function () {
+    const btnScroll = () => {
         if (window.pageYOffset > '700') {
             scroll.style.display = 'block';
         } else {
             scroll.style.display = 'none';
         };
     };
+    window.addEventListener('onscroll', btnScroll)
     search.addEventListener('click', hideFilter);
     quantity.addEventListener('change', films);
     pagination.addEventListener('click', usePagination);
     button.addEventListener('click', films);
-}
+};
 if (document.location.pathname.includes('Favourite')) {
     favorite();
 };
-
-
-
-

@@ -348,17 +348,17 @@ body {
     transition: all .3s;
 }
 
-#imgLike {
+.imgLike {
     position: absolute;
     top: 5px;
     right: 5px;
     display: block;
     width: 50px;
+    transition: all .5s;
 }
 
-#imgLike:hover {
+.imgLike:hover {
     transform: scale(1.2);
-    backdrop-filter: none;
 }
 
 #back_for_card:hover::after {
