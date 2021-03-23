@@ -11,14 +11,12 @@ const modalFilmDescr = document.getElementById('description');
 
 export const favorite = () => {
     let data = [];
-
     for (let i = 0; i < localStorage.length; i++) {
         const localKey = localStorage.key(i);
         const localValue = localStorage.getItem(localKey);
         const realData = JSON.parse(localValue);
         data.push(realData);
     };
-
     data.forEach((element) => {
         const divFilm = createElement('div', 'id', 'divFilms');
         const img = createElement('img', 'id', 'card');

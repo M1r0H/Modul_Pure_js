@@ -1,8 +1,10 @@
 import { films } from './film.js';
-export let page = 1;
+
 const currentPage = document.getElementById('currentPage');
 const buttonTrigger = document.getElementsByClassName('dot')[0];
 const dropdownMenu = document.getElementsByClassName('dropdown_menu')[0];
+
+export let page = 1;
 export const usePagination = (event) => {
     const pageCount = event.target.closest('.page_number');
     const drop = event.target.closest('#dropdown_page');

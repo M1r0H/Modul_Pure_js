@@ -8,6 +8,7 @@ const button = document.getElementById('btn');
 const pagination = document.getElementById('pagination');
 const search = document.getElementById('search');
 const scroll = document.getElementById('scroll_top');
+
 if (document.location.pathname.includes('Films')) {
     films();
     const btnScroll = () => {
@@ -28,6 +29,7 @@ if (document.location.pathname.includes('Films')) {
         };
     });
 };
+
 if (document.location.pathname.includes('Favourite')) {
     favorite();
 };

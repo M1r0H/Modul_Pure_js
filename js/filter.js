@@ -1,6 +1,7 @@
 const genre = document.getElementById('genre');
 const lang = document.getElementById('lang');
 const filterHide = document.getElementById('filter');
+
 export const hideFilter = (event) => {
     const filterDrop = event.target.closest('#input');
     if (filterDrop) {
@@ -14,6 +15,7 @@ export const hideFilter = (event) => {
         };
     };
 };
+
 export const filter = (data) => {
     if (genre.value !== 'All') {
         const filterGenre = data.filter(item => item.show.genres.includes(genre.value));
