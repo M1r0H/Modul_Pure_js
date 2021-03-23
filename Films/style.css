@@ -134,7 +134,7 @@ body {
 /* PAGINATION */
 
 #pagination {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
@@ -288,6 +288,7 @@ body {
 }
 
 #currentPage {
+    display: none;
     margin-bottom: 50px;
     font-size: 30px;
     text-align: center;
@@ -373,7 +374,6 @@ body {
     text-align: center;
     align-items: center;
     font-family: 'Shippori Mincho', serif;
-    ;
     font-size: 40px;
     font-weight: 900;
     margin-left: 20px;

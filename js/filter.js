@@ -8,7 +8,7 @@ export const hideFilter = (event) => {
     } else {
         filterHide.style.display = 'none';
     };
-    document.body.onclick = function (e) {
+    document.body.onclick = function(e) {
         if (e.target.id !== 'input' && e.target.id !== 'genre' && e.target.id !== 'lang') {
             filterHide.style.display = 'none';
         };
@@ -18,7 +18,7 @@ export const filter = (data) => {
     if (genre.value !== 'All') {
         const filterGenre = data.filter(item => item.show.genres.includes(genre.value));
         if (lang.value !== 'All') {
-            return filterGenre.filter(item => item.show.language.includes(lang.value.toLowerCase()));
+            return filterGenre.filter(item => item.show.language.includes(lang.value));
         };
         return filterGenre;
     } else {
